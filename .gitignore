@@ -11,3 +11,4 @@ backend/routers/__pycache__/query.cpython-311.pyc
 backend/utils/__pycache__/config.cpython-311.pyc
 backend/utils/__pycache__/embeddings.cpython-311.pyc
 backend/utils/__pycache__/vectorstore.cpython-311.pyc
+worker/__pycache__/worker.cpython-311.pyc
