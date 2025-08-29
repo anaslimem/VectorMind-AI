@@ -1,1 +1,13 @@
 env
+.chroma/chroma.sqlite3
+.chroma/2b271ed3-0096-4e76-a9ca-c2018be5402e/data_level0.bin
+.chroma/2b271ed3-0096-4e76-a9ca-c2018be5402e/header.bin
+.chroma/2b271ed3-0096-4e76-a9ca-c2018be5402e/length.bin
+.chroma/2b271ed3-0096-4e76-a9ca-c2018be5402e/link_lists.bin
+backend/__pycache__/main.cpython-311.pyc
+backend/routers/__pycache__/ingest.cpython-311.pyc
+backend/routers/__pycache__/metrics.cpython-311.pyc
+backend/routers/__pycache__/query.cpython-311.pyc
+backend/utils/__pycache__/config.cpython-311.pyc
+backend/utils/__pycache__/embeddings.cpython-311.pyc
+backend/utils/__pycache__/vectorstore.cpython-311.pyc

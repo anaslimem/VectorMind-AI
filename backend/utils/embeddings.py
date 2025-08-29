@@ -30,7 +30,7 @@ RAG_PROMPT = PromptTemplate(
     Context:
     {context}
 
-    Question:
+    Query:
     {question}
     """
 )
@@ -41,7 +41,8 @@ def get_llm_chain(retriever):
         retriever=retriever,
         chain_type="stuff",
         chain_type_kwargs={"prompt": RAG_PROMPT},  # correctly pass prompt
-        return_source_documents=True
+        return_source_documents=True,
+        input_key="question"
     )
     return chain
 
