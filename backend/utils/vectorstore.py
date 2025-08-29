@@ -29,19 +29,21 @@ def add_text(texts: List[str]) -> int:
     return len(docs)
 
 def add_file(upload_file) -> int:
+    import tempfile
+    import shutil
+
     suffix = (upload_file.filename or "").lower()
+    # Create a temporary directory
+    tmp_dir = tempfile.gettempdir()
+    tmp_path = os.path.join(tmp_dir, upload_file.filename)
+
+    upload_file.file.seek(0)
+    with open(tmp_path, "wb") as f:
+        shutil.copyfileobj(upload_file.file, f)
+
     if suffix.endswith(".pdf"):
-        # Save temp
-        tmp_path = f"/tmp/{upload_file.filename}"
-        upload_file.file.seek(0)
-        with open(tmp_path, "wb") as f:
-            f.write(upload_file.file.read())
         loader = PyPDFLoader(tmp_path)
     else:
-        tmp_path = f"/tmp/{upload_file.filename}"
-        upload_file.file.seek(0)
-        with open(tmp_path, "wb") as f:
-            f.write(upload_file.file.read())
         loader = TextLoader(tmp_path)
 
     pages = loader.load()
@@ -49,4 +51,6 @@ def add_file(upload_file) -> int:
     chunks = _splitter.split_documents(pages)
     get_vectorstore().add_documents(chunks)
     get_vectorstore().persist()
+    # Optionally, remove the temp file after processing
+    os.remove(tmp_path)
     return len(chunks)

@@ -40,7 +40,7 @@ def get_llm_chain(retriever):
         llm=llm,
         retriever=retriever,
         chain_type="stuff",
-        chain_type_kwargs={"prompt": RAG_PROMPT},  # correctly pass prompt
+        chain_type_kwargs={"prompt": RAG_PROMPT}, 
         return_source_documents=True,
         input_key="question"
     )
