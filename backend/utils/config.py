@@ -9,7 +9,7 @@ PERSIST_DIR = os.getenv("PERSIST_DIR", "./.chroma")
 
 # LLM provider: Ollama
 LLM_PROVIDER = os.getenv("LLM_PROVIDER", "OLLAMA").upper()
-OLLAMA_MODEL = os.getenv("OLLAMA_MODEL", "mistral")
+OLLAMA_MODEL = os.getenv("OLLAMA_MODEL", "llama3.1")
 
 # Redis, used by worker for caching
-REDIS_URL = os.getenv("REDIS_URL", "redis://localhost:6379/0")
+REDIS_URL = os.getenv("REDIS_URL", "redis://localhost:6379")

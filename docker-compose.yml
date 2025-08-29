@@ -12,7 +12,6 @@ services:
     build:
       context: .
       dockerfile: frontend/Dockerfile
-      provenance: false  
     ports:
       - "8501:8501"
     depends_on:

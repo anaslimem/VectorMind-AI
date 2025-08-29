@@ -12,13 +12,12 @@ def get_embedding():
     if _embeddings is None:
         _embeddings = HuggingFaceEmbeddings(model_name="sentence-transformers/all-MiniLM-L6-v2")
     return _embeddings
-
 # LLM
 _llm = None
 def get_llm():
     global _llm
     if _llm is None:
-        _llm = OllamaLLM(model=OLLAMA_MODEL, base_url="http://localhost:11434")
+        _llm = OllamaLLM(model=OLLAMA_MODEL, base_url="http://host.docker.internal:11434")
     return _llm
 
 RAG_PROMPT = PromptTemplate(

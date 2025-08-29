@@ -7,7 +7,7 @@ import requests
 st.set_page_config(page_title="VectorMind AI", page_icon="🤖", layout="wide")
 st.title("VectorMind AI 🤖")
 
-API_BASE = "http://localhost:8000"  # Adjust if your backend runs elsewhere
+API_BASE = "http://backend:8000"  # Adjust if your backend runs elsewhere
 
 # -------------------------
 # Sidebar: File ingestion
