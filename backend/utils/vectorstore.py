@@ -33,11 +33,13 @@ def add_file(upload_file) -> int:
     if suffix.endswith(".pdf"):
         # Save temp
         tmp_path = f"/tmp/{upload_file.filename}"
+        upload_file.file.seek(0)
         with open(tmp_path, "wb") as f:
             f.write(upload_file.file.read())
         loader = PyPDFLoader(tmp_path)
     else:
         tmp_path = f"/tmp/{upload_file.filename}"
+        upload_file.file.seek(0)
         with open(tmp_path, "wb") as f:
             f.write(upload_file.file.read())
         loader = TextLoader(tmp_path)

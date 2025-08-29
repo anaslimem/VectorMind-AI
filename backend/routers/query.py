@@ -1,6 +1,6 @@
 from fastapi import APIRouter, HTTPException
 from pydantic import BaseModel
-from typing import List, Optional
+from typing import List
 from backend.utils.vectorstore import get_retriever
 from backend.utils.embeddings import get_llm_chain
 
