@@ -1,3 +1,5 @@
+streamlit
+requests
 fastapi
 uvicorn[standard]
 pydantic
