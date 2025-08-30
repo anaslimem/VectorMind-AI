@@ -53,7 +53,7 @@ This is the quickest way to get the application running on your local machine.
 
 1.  **Clone the repository:**
     ```bash
-    git clone https://github.com/limemanas/vectormind-ai.git
+    git clone https://github.com/anaslimem/vectormind-ai.git
     cd vectormind-ai
     ```
 
@@ -138,4 +138,4 @@ This section guides you through deploying the application to a Kubernetes cluste
 
 ## 🤝 Contributing
 
-Contributions, issues, and feature requests are welcome! Feel free to check the [issues page](https://github.com/limemanas/vectormind-ai/issues ).
+Contributions, issues, and feature requests are welcome! Feel free to check the [issues page](https://github.com/anaslimem/vectormind-ai/issues ).
