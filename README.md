@@ -53,7 +53,7 @@ This is the quickest way to get the application running on your local machine.
 
 1.  **Clone the repository:**
     ```bash
-    git clone https://github.com/your-username/vectormind-ai.git
+    git clone https://github.com/limemanas/vectormind-ai.git
     cd vectormind-ai
     ```
 
@@ -81,12 +81,11 @@ This section guides you through deploying the application to a Kubernetes cluste
 2.  **Build and Push Docker Images:**
     You must build the `frontend` and `backend` images and push them to a public container registry like Docker Hub.
     ```bash
-    # Replace 'your-dockerhub-username' with your actual username
-    docker build -t your-dockerhub-username/vectormind-ai-backend:latest ./backend
-    docker push your-dockerhub-username/vectormind-ai-backend:latest
+    docker build -t limemanas/vectormind-ai-backend:latest ./backend
+    docker push limemanas/vectormind-ai-backend:latest
 
-    docker build -t your-dockerhub-username/vectormind-ai-frontend:latest ./frontend
-    docker push your-dockerhub-username/vectormind-ai-frontend:latest
+    docker build -t limemanas/vectormind-ai-frontend:latest ./frontend
+    docker push limemanas/vectormind-ai-frontend:latest
     ```
 
 3.  **Update Kubernetes YAML files:**
@@ -98,7 +97,7 @@ This section guides you through deploying the application to a Kubernetes cluste
     spec:
       containers:
       - name: backend
-        image: your-dockerhub-username/vectormind-ai-backend:latest
+        image: limemanas/vectormind-ai-backend:latest
         env:
         - name: OLLAMA_BASE_URL
           value: "http://<your-host-ip>:11434" # Find your IP accessible from Minikube
