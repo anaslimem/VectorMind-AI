@@ -6,7 +6,7 @@ This project is built with a modern, scalable, and cloud-native architecture, de
 
 ▶️ **[Link to your LinkedIn video demo here!]**
 
-![Architecture Diagram](path/to/your/architecture_diagram.png)
+![Architecture Diagram](./architecture_diagram.png)
 *(Suggestion: Create a simple diagram and link it here)*
 
 ## ✨ Features
