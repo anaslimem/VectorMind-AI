@@ -4,7 +4,6 @@ VectorMind AI is a full-stack, AI-powered application that allows you to chat wi
 
 This project is built with a modern, scalable, and cloud-native architecture, demonstrating a complete end-to-end workflow from development to deployment.
 
-▶️ **[Link to your LinkedIn video demo here!]**
 
 ![Architecture Diagram](./architecture_diagram.png)
 
