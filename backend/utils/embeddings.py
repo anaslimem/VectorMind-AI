@@ -3,8 +3,9 @@ from langchain.chains import RetrievalQA
 from langchain_core.prompts import PromptTemplate
 from backend.utils.config import OLLAMA_MODEL
 from langchain_ollama import OllamaLLM
+import os 
 
-
+OLLAMA_URL = os.getenv("OLLAMA_BASE_URL")
 _embeddings = None
 
 def get_embedding():
@@ -17,7 +18,7 @@ _llm = None
 def get_llm():
     global _llm
     if _llm is None:
-        _llm = OllamaLLM(model=OLLAMA_MODEL, base_url="http://host.docker.internal:11434")
+        _llm = OllamaLLM(model=OLLAMA_MODEL, base_url=OLLAMA_URL)
     return _llm
 
 RAG_PROMPT = PromptTemplate(

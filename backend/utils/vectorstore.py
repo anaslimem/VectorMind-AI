@@ -4,8 +4,9 @@ from langchain_community.vectorstores import Chroma
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 from langchain_community.document_loaders import PyPDFLoader, TextLoader
 from backend.utils.embeddings import get_embedding
-from backend.utils.config import PERSIST_DIR
 
+
+PERSIST_DIR = os.getenv("PERSIST_DIR")
 _vs = None
 _splitter = RecursiveCharacterTextSplitter(chunk_size=800, chunk_overlap=120)
 
