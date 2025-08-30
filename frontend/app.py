@@ -1,13 +1,14 @@
 import streamlit as st
 import requests
+import os 
 
-# -------------------------
-# Streamlit page config
-# -------------------------
+
 st.set_page_config(page_title="VectorMind AI", page_icon="🤖", layout="wide")
 st.title("VectorMind AI 🤖")
 
-API_BASE = "http://backend:8000"  # Adjust if your backend runs elsewhere
+API_BASE = "http://backend:8000"  
+
+
 
 # -------------------------
 # Sidebar: File ingestion
@@ -20,7 +21,7 @@ with st.sidebar:
         st.write(f"File selected: {uploaded.name}")
         if st.button("Ingest File"):
             try:
-                uploaded.seek(0)  # Ensure file pointer is at start
+                uploaded.seek(0)  
                 files = {"file": (uploaded.name, uploaded.read(), uploaded.type)}
                 r = requests.post(f"{API_BASE}/ingest/file", files=files)
                 if r.status_code == 200:
