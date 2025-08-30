@@ -1,9 +1,10 @@
 import os 
 from typing import List
-from langchain_community.vectorstores import Chroma
+from langchain_chroma import Chroma
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 from langchain_community.document_loaders import PyPDFLoader, TextLoader
 from backend.utils.embeddings import get_embedding
+import chromadb
 
 
 PERSIST_DIR = os.getenv("PERSIST_DIR")
@@ -13,10 +14,12 @@ _splitter = RecursiveCharacterTextSplitter(chunk_size=800, chunk_overlap=120)
 def get_vectorstore() -> Chroma:
     global _vs
     if _vs is None:
+        client = chromadb.PersistentClient(path=PERSIST_DIR)
         os.makedirs(PERSIST_DIR, exist_ok=True)
         _vs = Chroma(
-            embedding_function=get_embedding(),
-            persist_directory=PERSIST_DIR
+            client = client,
+            collection_name = "documents",
+            embedding_function = get_embedding(),
         )
     return _vs
 
@@ -26,7 +29,6 @@ def get_retriever(k: int = 4 ) -> Chroma:
 def add_text(texts: List[str]) -> int:
     docs = _splitter.create_documents(texts, metadatas=[{"source": "api:text"}] * len(texts))
     get_vectorstore().add_documents(docs)
-    get_vectorstore().persist()
     return len(docs)
 
 def add_file(upload_file) -> int:
@@ -51,7 +53,5 @@ def add_file(upload_file) -> int:
     # Split and store 
     chunks = _splitter.split_documents(pages)
     get_vectorstore().add_documents(chunks)
-    get_vectorstore().persist()
-    # Optionally, remove the temp file after processing
     os.remove(tmp_path)
     return len(chunks)

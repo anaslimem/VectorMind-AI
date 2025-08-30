@@ -1,6 +1,7 @@
 import redis
-from backend.utils.config import REDIS_URL
+import os
 
+REDIS_URL = os.getenv("REDIS_URL")
 _client = None
 
 def get_redis_client():

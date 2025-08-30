@@ -1,4 +1,4 @@
-from langchain_community.embeddings import HuggingFaceEmbeddings
+from langchain_huggingface import HuggingFaceEmbeddings
 from langchain.chains import RetrievalQA
 from langchain_core.prompts import PromptTemplate
 from backend.utils.config import OLLAMA_MODEL
