@@ -1,10 +1,10 @@
 from langchain_huggingface import HuggingFaceEmbeddings
 from langchain.chains import RetrievalQA
 from langchain_core.prompts import PromptTemplate
-from backend.utils.config import OLLAMA_MODEL
 from langchain_ollama import OllamaLLM
 import os 
 
+OLLAMA_MODEL = os.getenv("OLLAMA_MODEL")
 OLLAMA_URL = os.getenv("OLLAMA_BASE_URL")
 _embeddings = None
 

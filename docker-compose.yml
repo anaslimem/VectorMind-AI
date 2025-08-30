@@ -7,10 +7,14 @@ services:
       - "8000:8000"
     volumes:
       - ./chroma:/app/db
+      - ./hf_cache:/root/.cache/huggingface
+
     environment:
       - PERSIST_DIR=/app/db
       - OLLAMA_BASE_URL=http://host.docker.internal:11434
       - REDIS_URL=redis://redis:6379
+      - OLLAMA_MODEL=llama3.1
+      - LLM_PROVIDER=ollama
     depends_on:
       - redis
 

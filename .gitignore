@@ -7,12 +7,5 @@ backend/utils/__pycache__/config.cpython-311.pyc
 backend/utils/__pycache__/embeddings.cpython-311.pyc
 backend/utils/__pycache__/vectorstore.cpython-311.pyc
 worker/__pycache__/worker.cpython-311.pyc
-chroma/chroma.sqlite3
-chroma/ce99c0ef-78dc-40d1-aea7-f6c49ff5c672/data_level0.bin
-chroma/ce99c0ef-78dc-40d1-aea7-f6c49ff5c672/header.bin
-chroma/ce99c0ef-78dc-40d1-aea7-f6c49ff5c672/length.bin
-chroma/ce99c0ef-78dc-40d1-aea7-f6c49ff5c672/link_lists.bin
-chroma/c5b8cfb5-086f-4546-bc6f-d5d5fbc5674b/data_level0.bin
-chroma/c5b8cfb5-086f-4546-bc6f-d5d5fbc5674b/header.bin
-chroma/c5b8cfb5-086f-4546-bc6f-d5d5fbc5674b/length.bin
-chroma/c5b8cfb5-086f-4546-bc6f-d5d5fbc5674b/link_lists.bin
+hf_cache
+chroma
