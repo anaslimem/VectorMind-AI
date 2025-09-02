@@ -16,7 +16,7 @@ API_BASE = "http://backend:8000"
 with st.sidebar:
     st.header("Ingest Documents")
 
-    uploaded = st.file_uploader("Upload PDF or TXT", type=["pdf", "txt"])
+    uploaded = st.file_uploader("Upload PDF or TXT or DOCX", type=["pdf", "txt", "docx"])
     if uploaded:
         st.write(f"File selected: {uploaded.name}")
         if st.button("Ingest File"):

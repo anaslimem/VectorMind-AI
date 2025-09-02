@@ -2,7 +2,7 @@ import os
 from typing import List
 from langchain_chroma import Chroma
 from langchain.text_splitter import RecursiveCharacterTextSplitter
-from langchain_community.document_loaders import PyPDFLoader, TextLoader
+from langchain_community.document_loaders import PyPDFLoader, TextLoader, Docx2txtLoader
 from backend.utils.embeddings import get_embedding
 import chromadb
 
@@ -46,6 +46,8 @@ def add_file(upload_file) -> int:
 
     if suffix.endswith(".pdf"):
         loader = PyPDFLoader(tmp_path)
+    elif suffix.endswith(".docx"):
+        loader = Docx2txtLoader(tmp_path)
     else:
         loader = TextLoader(tmp_path)
 
