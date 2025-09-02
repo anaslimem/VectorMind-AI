@@ -1,8 +1,6 @@
 streamlit
 requests
 fastapi
-uvicorn[standard]
-pydantic
 python-dotenv
 langchain
 langchain-community
@@ -12,8 +10,7 @@ chromadb
 sentence-transformers
 redis
 requests
-pymongo
-python-multipart
 pypdf
 langchain_huggingface
 langchain_chroma
+docx2txt
