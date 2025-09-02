@@ -21,10 +21,9 @@ jobs:
       with:
         python-version: "3.10"
 
-    # Install dependencies (backend)
+    # Install dependencies 
     - name: Install dependencies
       run: |
-        cd backend
         pip install -r requirements.txt
         pip install pytest flake8
 
