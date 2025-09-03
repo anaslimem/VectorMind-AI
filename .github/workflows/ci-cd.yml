@@ -60,7 +60,7 @@ jobs:
     # Deploy to Kubernetes
     - name: Deploy to Kubernetes
       run: |
-        kubectl apply -f k8s/fastapi-deployment.yml
-        kubectl apply -f k8s/streamlit-deployment.yml
-        kubectl apply -f k8s/redis-deployment.yml
-        kubectl apply -f k8s/chromadb-deployment.yml
+        kubectl apply -f k8s/fastapi-deployment.yaml
+        kubectl apply -f k8s/streamlit-deployment.yaml
+        kubectl apply -f k8s/redis-deployment.yaml
+        kubectl apply -f k8s/chromadb-deployment.yaml
