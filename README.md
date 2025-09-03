@@ -38,7 +38,7 @@ This project is built with a modern, scalable, and cloud-native architecture, de
 There are two ways to run this project: locally using Docker Compose for development, or by deploying it to a Kubernetes cluster.
 
 ### Prerequisites
-
+ 
 *   [Docker](https://docs.docker.com/get-docker/ ) & [Docker Compose](https://docs.docker.com/compose/install/ )
 *   [Kubernetes](https://kubernetes.io/docs/setup/ ) (e.g., via [Minikube](https://minikube.sigs.k8s.io/docs/start/ ) or Docker Desktop)
 *   [kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/ )
