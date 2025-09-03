@@ -50,3 +50,17 @@ jobs:
         context: ./frontend
         push: true
         tags: ${{ secrets.DOCKER_USERNAME }}/vectormind-ai-frontend:latest
+
+    # Setup kubectl
+    - name: Set up kubectl
+      uses: azure/setup-kubectl@v3
+      with:
+        version: 'latest'
+
+    # Deploy to Kubernetes
+    - name: Deploy to Kubernetes
+      run: |
+        kubectl apply -f k8s/backend-deployment.yml
+        kubectl apply -f k8s/frontend-deployment.yml
+        kubectl apply -f k8s/redis-deployment.yml
+        kubectl apply -f k8s/chromadb-deployment.yml
