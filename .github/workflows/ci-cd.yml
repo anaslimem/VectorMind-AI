@@ -66,6 +66,6 @@ jobs:
         kubectl apply -f k8s/redis-deployment.yaml
         kubectl apply -f k8s/chromadb-deployment.yaml
 
-    # ✅ Check pods after deployment
+    # Check pods after deployment
     - name: Check Kubernetes Pods
       run: kubectl get pods --namespace=default
