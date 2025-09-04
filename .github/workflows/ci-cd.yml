@@ -15,18 +15,17 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v3
 
-    # Set up Python (for backend tests)
+    # Set up Python (optional for dependencies in future)
     - name: Set up Python
       uses: actions/setup-python@v4
       with:
         python-version: "3.10"
 
-    # Install dependencies 
+    # Install dependencies (can be removed if not needed)
     - name: Install dependencies
       run: |
         cd backend
         pip install -r requirements.txt
-        pip install pytest flake8
 
     # Log in to Docker Hub
     - name: Docker login
@@ -51,16 +50,22 @@ jobs:
         push: true
         tags: ${{ secrets.DOCKER_USERNAME }}/vectormind-ai-frontend:latest
 
-    # Setup kubectl
-    - name: Set up kubectl
-      uses: azure/setup-kubectl@v3
-      with:
-        version: 'latest'
+    # Start Minikube (runs Kubernetes cluster inside CI runner)
+    - name: Set up Minikube
+      uses: medyagh/setup-minikube@master
 
-    # Deploy to Kubernetes
+    # Verify Minikube
+    - name: Verify Minikube
+      run: kubectl get nodes
+
+    # Deploy to Kubernetes inside Minikube
     - name: Deploy to Kubernetes
       run: |
         kubectl apply -f k8s/fastapi-deployment.yaml
         kubectl apply -f k8s/streamlit-deployment.yaml
         kubectl apply -f k8s/redis-deployment.yaml
         kubectl apply -f k8s/chromadb-deployment.yaml
+
+    # ✅ Check pods after deployment
+    - name: Check Kubernetes Pods
+      run: kubectl get pods --namespace=default
