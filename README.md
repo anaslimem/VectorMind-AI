@@ -32,7 +32,8 @@ This project is built with a modern, scalable, and cloud-native architecture, de
 *   **Containerization**: [Docker](https://www.docker.com/ )
 *   **Orchestration**: [Kubernetes](https://kubernetes.io/ )
 *   **Local Cluster**: [Minikube](https://minikube.sigs.k8s.io/docs/ )
-
+*   **CI/CD Pipeline**: GitHub Actions pipeline automates Docker image builds, pushes to Docker Hub, and Kubernetes deployments to Minikube or a cluster.
+  
 ## 🚀 Getting Started
 
 There are two ways to run this project: locally using Docker Compose for development, or by deploying it to a Kubernetes cluster.
@@ -122,6 +123,19 @@ This section guides you through deploying the application to a Kubernetes cluste
     minikube service frontend-service
     ```
     This will automatically open the application in your browser.
+
+### 3. CI/CD Pipeline
+
+This project includes a CI/CD workflow implemented with **GitHub Actions**, which automates:
+
+1. Building Docker images for the backend and frontend.
+2. Pushing images to Docker Hub.
+3. Deploying Kubernetes manifests to a Minikube cluster (or any configured Kubernetes cluster).
+4. Validating that all pods are running successfully.
+
+This allows for **continuous integration and deployment**, ensuring that any changes pushed to the repository are automatically built and deployed for testing or production.
+
+You can find the workflow configuration in `.github/workflows/ci-cd.yaml`.
 
 ## 🏛️ Architecture Overview
 
