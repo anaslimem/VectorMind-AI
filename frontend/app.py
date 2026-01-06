@@ -4,7 +4,7 @@ import os
 
 
 st.set_page_config(page_title="VectorMind AI", page_icon="🤖", layout="wide")
-st.title("VectorMind AI 🤖")
+st.title("VectorMind AI")
 
 API_BASE = "http://backend:8000"  
 
